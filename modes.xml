@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modes>
+
+  <!-- jdt → xal -->
+
+  <mode name="jdt-xal" install="yes" gendebug="yes">
+    <pipeline>
+      <program name="lt-proc -w">
+        <file name="jdt-xal.automorf.bin"/>
+      </program>
+
+
+      <program name="cg-proc -w">
+        <file name="jdt-xal.rlx.bin"/>
+      </program>
+      <program name="apertium-tagger -g $2">
+        <file name="jdt-xal.prob"/>
+      </program>
+      <program name="apertium-pretransfer"/>
+      <program name="lt-proc -b">
+        <file name="jdt-xal.autobil.bin"/>
+      </program>
+      <program name="lrx-proc -m">
+        <file name="jdt-xal.autolex.bin"/>
+      </program>
+      <program name="apertium-transfer -b">
+        <file name="apertium-jdt-xal.jdt-xal.t1x"/>
+        <file name="jdt-xal.t1x.bin"/>
+      </program>
+      <program name="apertium-interchunk">
+        <file name="apertium-jdt-xal.jdt-xal.t2x"/>
+        <file name="jdt-xal.t2x.bin"/>
+      </program>
+      <program name="apertium-postchunk">
+        <file name="apertium-jdt-xal.jdt-xal.t3x"/>
+        <file name="jdt-xal.t3x.bin"/>
+      </program>
+      <program name="lt-proc $1">
+        <file name="jdt-xal.autogen.bin"/>
+      </program>
+
+      <program name="lt-proc -p">
+        <file name="jdt-xal.autopgen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <!-- xal → jdt -->
+
+  <mode name="xal-jdt" install="yes" gendebug="yes">
+    <pipeline>
+      <program name="lt-proc -w">
+        <file name="xal-jdt.automorf.bin"/>
+      </program>
+
+
+      <program name="cg-proc -w">
+        <file name="xal-jdt.rlx.bin"/>
+      </program>
+      <program name="apertium-tagger -g $2">
+        <file name="xal-jdt.prob"/>
+      </program>
+      <program name="apertium-pretransfer"/>
+      <program name="lt-proc -b">
+        <file name="xal-jdt.autobil.bin"/>
+      </program>
+      <program name="lrx-proc -m">
+        <file name="xal-jdt.autolex.bin"/>
+      </program>
+      <program name="apertium-transfer -b">
+        <file name="apertium-jdt-xal.xal-jdt.t1x"/>
+        <file name="xal-jdt.t1x.bin"/>
+      </program>
+      <program name="apertium-interchunk">
+        <file name="apertium-jdt-xal.xal-jdt.t2x"/>
+        <file name="xal-jdt.t2x.bin"/>
+      </program>
+      <program name="apertium-postchunk">
+        <file name="apertium-jdt-xal.xal-jdt.t3x"/>
+        <file name="xal-jdt.t3x.bin"/>
+      </program>
+      <program name="lt-proc $1">
+        <file name="xal-jdt.autogen.bin"/>
+      </program>
+
+      <program name="lt-proc -p">
+        <file name="xal-jdt.autopgen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+</modes>
+

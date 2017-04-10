@@ -1,0 +1,44 @@
+<rules>
+
+
+ <!--
+    Default translation of "зүркн" (heart/courage) as "дуьл" (heart)
+    Test sentence 1: зүркн һундах (cause cardiac injury/emotional pain)
+    Test sentence 2: зүркн догдлад бәәнә (heart is beating)
+  -->
+
+  <rule weight="0.8">
+    <match lemma="зүркн" tags="n.*">
+      <select lemma="дуьл" tags="n.*"/>
+    </match>
+  </rule>
+
+  <!--
+    Selects "гъирйет" (courage) as the translation of "зүркн" (heart/courage) when it is
+    followed by "кергтә" (necessary) or "герлтҗ" (glow). 
+    Test sentence 1: энүг күцәхин төлә зүркн кергтә ("to do this we need courage")
+    Test sentence 2: Хальмг ТаңҺчин зүркнд герлтҗ ("the Kalmyk people's courage glows")
+  -->
+
+  <rule>
+    <match lemma="зүркн" tags="n.*">
+      <select lemma="гъирйет" tags="n.*"/>
+    </match>
+    <or>
+        <match lemma="кергтә" tags="adj.*"/>
+	<match lemma="кергтә" tags="adj"/>
+	<match lemma="герлтҗ" tags="v.*"/>
+    </or>
+  </rule>
+
+
+</rules>
+
+<!-- 
+Resources: 
+    http://wiki.apertium.org/wiki/How_to_get_started_with_lexical_selection_rules
+    http://wiki.apertium.org/wiki/Constraint-based_lexical_selection
+    http://wiki.apertium.org/wiki/Lexical_selection
+    http://wiki.apertium.org/wiki/Learning_rules_from_parallel_and_non-parallel_corpora
+-->
+

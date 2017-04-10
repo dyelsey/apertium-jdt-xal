@@ -1,0 +1,36 @@
+<rules>
+
+<!-- These rules are to distinguish between hair on a person's head (үсн) and other hair (килhсн)
+Test sentences are:
+муйдуразе геде (youth with long hair) - should be translated as үсн
+муйдуразе зен (woman with long hair) - should be translated as үсн
+муйзарзарийе гусбенд (a sheep with curly hair) - should be translated as килhсн
+муйзарзарийе кечи (a goat with curly hair) - should be translated as килhсн
+-->
+
+  <rule weight=".8">
+    <match lemma="муй" tags="n.*">
+      <select lemma="килhсн" tags="n.*"/>
+    </match>
+  </rule>
+  
+  <rule>
+    <match lemma="муй" tags="n.*">
+      <select lemma="үсн" tags="n.*"/>
+    </match>
+    <or>
+        <match lemma="геде" tags="n.*"/>
+        <match lemma="зен" tags="n.*"/>
+        <match lemma="одоми" tags="n.*"/>
+    </or>
+  </rule>
+</rules>
+
+<!-- 
+Resources: 
+    http://wiki.apertium.org/wiki/How_to_get_started_with_lexical_selection_rules
+    http://wiki.apertium.org/wiki/Constraint-based_lexical_selection
+    http://wiki.apertium.org/wiki/Lexical_selection
+    http://wiki.apertium.org/wiki/Learning_rules_from_parallel_and_non-parallel_corpora
+-->
+
